@@ -35,12 +35,12 @@
     <a-sky color="#87CEEB"></a-sky>
 
     <!-- Ground with grass and flower pattern -->
-    <a-plane position="0 0 0" rotation="-90 0 0" width="50" height="50" src="#grassTexture" repeat="50 50"></a-plane>
-
-    <!-- Grass Texture with Flowers -->
     <a-assets>
-      <img id="grassTexture" src="https://image.shutterstock.com/image-vector/grass-seamless-pattern-vector-green-260nw-708766196.jpg">
+      <img id="grassTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+      <img id="flowerTexture" src="https://i.imgur.com/S0pZMG1.png">
+      <img id="houseTexture" src="https://i.imgur.com/9IfUXNI.jpeg">
     </a-assets>
+    <a-plane position="0 0 0" rotation="-90 0 0" width="50" height="50" src="#grassTexture" repeat="50 50"></a-plane>
 
     <!-- Your Name in the Center -->
     <a-entity 
@@ -51,7 +51,7 @@
     </a-entity>
 
     <!-- Improved Trees with Fruit -->
-    <a-entity id="tree1" position="-7 1 -12" scale="0.5 0.5 0.5">
+    <a-entity id="tree1" position="-7 2 -12" scale="0.5 0.5 0.5">
       <a-cylinder radius="0.5" height="6" color="#8B4513"></a-cylinder>
       <a-sphere position="0 5 -1" radius="2.5" color="#228B22"></a-sphere>
       <a-sphere position="0 7 -1.5" radius="2" color="#228B22"></a-sphere>
@@ -60,7 +60,7 @@
       <a-sphere position="0.5 5 -1" radius="0.2" color="#FF6347"></a-sphere>
     </a-entity>
     
-    <a-entity id="tree2" position="7 1 -12" scale="0.5 0.5 0.5">
+    <a-entity id="tree2" position="7 2 -12" scale="0.5 0.5 0.5">
       <a-cylinder radius="0.5" height="6" color="#8B4513"></a-cylinder>
       <a-sphere position="0 5 -1" radius="2.5" color="#228B22"></a-sphere>
       <a-sphere position="0 7 -1.5" radius="2" color="#228B22"></a-sphere>
@@ -76,16 +76,19 @@
     <a-sphere position="-1 0.75 -8" radius="0.75" color="#006400"></a-sphere>
 
     <!-- Pathway -->
-    <a-box position="0 -0.02 -5" depth="30" height="0.05" width="4" color="#8B4513"></a-box>
-    <a-box position="0 -0.02 -15" depth="1" height="0.05" width="30" color="#8B4513"></a-box>
+    <a-box position="0 -0.01 -5" depth="30" height="0.05" width="4" color="#8B4513"></a-box>
+    <a-box position="0 -0.01 -15" depth="1" height="0.05" width="30" color="#8B4513"></a-box>
 
     <!-- Flowers by the Pathway -->
-    <a-entity geometry="primitive: plane; height: 0.2; width: 0.2" position="-2 0.1 -5" material="color: red;" rotation="-90 0 0"></a-entity>
-    <a-entity geometry="primitive: plane; height: 0.2; width: 0.2" position="2 0.1 -5" material="color: blue;" rotation="-90 0 0"></a-entity>
-    <a-entity geometry="primitive: plane; height: 0.2; width: 0.2" position="-2 0.1 -10" material="color: yellow;" rotation="-90 0 0"></a-entity>
-    <a-entity geometry="primitive: plane; height: 0.2; width: 0.2" position="2 0.1 -10" material="color: pink;" rotation="-90 0 0"></a-entity>
-    <a-entity geometry="primitive: plane; height: 0.2; width: 0.2" position="-2 0.1 -15" material="color: white;" rotation="-90 0 0"></a-entity>
-    <a-entity geometry="primitive: plane; height: 0.2; width: 0.2" position="2 0.1 -15" material="color: orange;" rotation="-90 0 0"></a-entity>
+    <!-- Left side -->
+    <a-entity geometry="primitive: plane; height: 0.5; width: 0.5" position="-2.5 0 -5" rotation="-90 0 0" material="src: #flowerTexture; repeat: 6 1;"></a-entity>
+    <a-entity geometry="primitive: plane; height: 0.5; width: 0.5" position="-2.5 0 -10" rotation="-90 0 0" material="src: #flowerTexture; repeat: 6 1;"></a-entity>
+    <a-entity geometry="primitive: plane; height: 0.5; width: 0.5" position="-2.5 0 -15" rotation="-90 0 0" material="src: #flowerTexture; repeat: 6 1;"></a-entity>
+
+    <!-- Right side -->
+    <a-entity geometry="primitive: plane; height: 0.5; width: 0.5" position="2.5 0 -5" rotation="-90 0 0" material="src: #flowerTexture; repeat: 6 1;"></a-entity>
+    <a-entity geometry="primitive: plane; height: 0.5; width: 0.5" position="2.5 0 -10" rotation="-90 0 0" material="src: #flowerTexture; repeat: 6 1;"></a-entity>
+    <a-entity geometry="primitive: plane; height: 0.5; width: 0.5" position="2.5 0 -15" rotation="-90 0 0" material="src: #flowerTexture; repeat: 6 1;"></a-entity>
 
     <!-- Diverse Flowers -->
     <a-entity geometry="primitive: plant; depth: 0.2; height: 0.8; width: 0.2" position="-2 0 -6" material="color: #FFB6C1;"></a-entity>
@@ -99,19 +102,25 @@
     <a-cylinder position="3 0.3 -7" radius="0.05" height="0.8" color="#228B22"></a-cylinder>
     <a-sphere position="3 1 -7" radius="0.35" color="#FFD700"></a-sphere>
 
-    <!-- Bench -->
+    <!-- Benches -->
     <a-box position="-5 1 -18" rotation="0 0 0" width="2" height="0.2" depth="0.8" color="#8B4513"></a-box>
     <a-box position="-5.8 0.6 -18" rotation="0 90 0" width="0.8" height="0.2" depth="0.2" color="#8B4513"></a-box>
     <a-box position="-4.2 0.6 -18" rotation="0 90 0" width="0.8" height="0.2" depth="0.2" color="#8B4513"></a-box>
     <a-box position="-5.9 0.3 -18" rotation="0 0 0" width="0.2" height="0.6" depth="0.2" color="#8B4513"></a-box>
     <a-box position="-4.1 0.3 -18" rotation="0 0 0" width="0.2" height="0.6" depth="0.2" color="#8B4513"></a-box>
 
+    <a-box position="5 1 -18" rotation="0 0 0" width="2" height="0.2" depth="0.8" color="#8B4513"></a-box>
+    <a-box position="4.2 0.6 -18" rotation="0 90 0" width="0.8" height="0.2" depth="0.2" color="#8B4513"></a-box>
+    <a-box position="5.8 0.6 -18" rotation="0 90 0" width="0.8" height="0.2" depth="0.2" color="#8B4513"></a-box>
+    <a-box position="4.1 0.3 -18" rotation="0 0 0" width="0.2" height="0.6" depth="0.2" color="#8B4513"></a-box>
+    <a-box position="5.9 0.3 -18" rotation="0 0 0" width="0.2" height="0.6" depth="0.2" color="#8B4513"></a-box>
+
     <!-- Fountain -->
-    <a-cylinder position="0 0.5 -20" radius="2" height="1" color="#ADD8E6"></a-cylinder>
-    <a-sphere position="0 1 -20" radius="0.15" color="#0000FF" animation="property: position; to: 0 2.5 -20; dir: alternate; dur: 1500; easing: easeInSine; loop: true;"></a-sphere>
+    <a-cylinder position="-10 0.5 -20" radius="2" height="1" color="#ADD8E6" src="#waterTexture"></a-cylinder>
+    <a-sphere position="-10 1 -20" radius="0.15" color="#0000FF" animation="property: position; to: -10 2.5 -20; dir: alternate; dur: 1500; easing: easeInSine; loop: true;"></a-sphere>
 
     <!-- Gazebo -->
-    <a-box position="0 2 -25" width="6" height="4" depth="6" color="#DEB887" opacity="0.6"></a-box>
+    <a-box position="0 2 -25" width="6" height="4" depth="6" material="src: #houseTexture; opacity: 0.8;"></a-box>
     <a-box position="0 5 -25" rotation="45 0 0" width="8.5" height="0.3" depth="8.5" color="#8B4513"></a-box>
 
     <!-- Improved Clouds -->
@@ -126,6 +135,38 @@
     <a-sphere position="0 13 -50" radius="5" color="#FFFFFF"></a-sphere>
     <a-sphere position="-2 14 -50" radius="4" color="#FFFFFF"></a-sphere>
     <a-sphere position="2 14 -50" radius="4" color="#FFFFFF"></a-sphere>
+
+    <!-- Butterflies -->
+    <a-entity position="-2 2 -7">
+      <a-animation attribute="position" from="-2 2 -7" to="-1.5 3 -7.5" dur="2000" direction="alternate" repeat="indefinite"></a-animation>
+    </a-entity>
+    <a-entity position="2 2 -6">
+      <a-animation attribute="position" from="2 2 -6" to="2.5 3 -6.5" dur="2000" direction="alternate" repeat="indefinite"></a-animation>
+    </a-entity>
+
+    <!-- Flower Pots -->
+    <a-cylinder position="-3 0.2 -9" radius="0.2" height="0.4" color="#8B4513"></a-cylinder>
+    <a-sphere position="-3 0.6 -9" radius="0.2" color="#FF6347"></a-sphere>
+    <a-cylinder position="3 0.2 -9" radius="0.2" height="0.4" color="#8B4513"></a-cylinder>
+    <a-sphere position="3 0.6 -9" radius="0.2" color="#FF6347"></a-sphere>
+
+    <!-- Lanterns -->
+    <a-cone position="-5 1 -13" radius-bottom="0.1" height="1" color="#FFD700"></a-cone>
+    <a-light type="point" intensity="0.6" distance="2" position="-5 1 -13" color="#FFD700"></a-light>
+    
+    <a-cone position="5 1 -13" radius-bottom="0.1" height="1" color="#FFD700"></a-cone>
+    <a-light type="point" intensity="0.6" distance="2" position="5 1 -13" color="#FFD700"></a-light>
+
+    <!-- Birdhouse -->
+    <a-box position="0 4 -18" width="1" height="1" depth="1" color="#8B4513"></a-box>
+    <a-cylinder position="0.3 3.5 -18" radius="0.1" height="0.5" color="#8B4513"></a-cylinder>
+    <a-sphere position="0.3 4.2 -18" radius="0.1" color="#8B4513"></a-sphere>
+
+    <!-- Surrounding Fence -->
+    <a-box position="-25 1 -25" width="1" height="2" depth="50" color="#8B4513"></a-box>
+    <a-box position="25 1 -25" width="1" height="2" depth="50" color="#8B4513"></a-box>
+    <a-box position="0 1 -50" width="50" height="2" depth="1" color="#8B4513"></a-box>
+    <a-box position="0 1 0" width="50" height="2" depth="1" color="#8B4513"></a-box>
 
     <!-- Interactive Lighting -->
     <a-light type="ambient" color="#555"></a-light>
