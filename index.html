@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ahmet's 3D Garden Portfolio</title>
+  <title>Ahmet's Space Themed Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <style>
@@ -21,7 +21,7 @@
       color: white;
       font-size: 24px;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.7);
       padding: 10px;
       border-radius: 5px;
       z-index: 10;
@@ -29,152 +29,149 @@
   </style>
 </head>
 <body>
-  <div id="intro">Welcome to Ahmet's 3D Garden Portfolio</div>
+  <div id="intro">Welcome to Ahmet's Space Themed Portfolio</div>
   <a-scene>
-    <!-- Sky -->
-    <a-sky color="#87CEEB"></a-sky>
+    <!-- Sky with Stars -->
+    <a-sky color="#000000"></a-sky>
+    <a-entity light="type: ambient; color: #222"></a-entity>
 
-    <!-- Ground with detailed grass pattern -->
-    <a-plane position="0 0 0" rotation="-90 0 0" width="80" height="80" color="#7BC8A4"></a-plane>
+    <!-- Lunar Surface -->
+    <a-plane position="0 0 0" rotation="-90 0 0" width="200" height="200" color="#444444"></a-plane>
 
     <!-- Your Name in the Center -->
-    <a-entity 
-      id="main-text"
-      position="0 4 -10" 
+    <a-text 
+      value="Ahmet" 
+      color="#FFFFFF" 
+      width="10" 
+      position="0 6 -20"
       rotation="0 0 0"
-      text="value: Ahmet; color: #FFFFFF; align: center; width: 10;">
+      align="center"></a-text>
+
+    <!-- Stars -->
+    <a-sphere position="-15 25 -50" radius="0.5" color="#FFFFFF"></a-sphere>
+    <a-sphere position="20 15 -55" radius="0.7" color="#FFFFFF"></a-sphere>
+    <a-sphere position="10 30 -60" radius="0.8" color="#FFFFFF"></a-sphere>
+    <a-sphere position="5 10 -45" radius="0.5" color="#FFFFFF"></a-sphere>
+    <a-sphere position="-5 20 -40" radius="0.6" color="#FFFFFF"></a-sphere>
+    <a-sphere position="5 35 -50" radius="0.5" color="#FFFFFF"></a-sphere>
+    <a-sphere position="-10 15 -55" radius="0.4" color="#FFFFFF"></a-sphere>
+
+    <!-- Starfield using a particle system -->
+    <a-entity position="0 5 0">
+      <a-entity particle-system="preset: star; particleCount: 3000; color: #FFF; maxParticleCount: 5000;"></a-entity>
     </a-entity>
 
-    <!-- Detailed Trees -->
-    <a-entity id="tree1" position="-7 0 -12" scale="0.5 0.5 0.5">
-      <a-cylinder radius="0.5" height="6" color="#8B4513"></a-cylinder>
-      <a-sphere position="0 4 -1" radius="2" color="#228B22"></a-sphere>
-      <a-sphere position="0 5.5 -1.5" radius="1.5" color="#228B22"></a-sphere>
-      <a-sphere position="0 6.5 -2" radius="1" color="#228B22"></a-sphere>
-      <a-sphere position="0.5 4.5 -1" radius="0.2" color="#FF6347"></a-sphere>
-      <a-sphere position="-0.5 5 -1" radius="0.2" color="#FF6347"></a-sphere>
-      <a-sphere position="0.3 5.8 -1.5" radius="0.2" color="#FF6347"></a-sphere>
-    </a-entity>
-    
-    <a-entity id="tree2" position="7 0 -12" scale="0.5 0.5 0.5">
-      <a-cylinder radius="0.5" height="6" color="#8B4513"></a-cylinder>
-      <a-sphere position="0 4 -1" radius="2" color="#228B22"></a-sphere>
-      <a-sphere position="0 5.5 -1.5" radius="1.5" color="#228B22"></a-sphere>
-      <a-sphere position="0 6.5 -2" radius="1" color="#228B22"></a-sphere>
-      <a-sphere position="0.5 4.5 -1" radius="0.2" color="#FF6347"></a-sphere>
-      <a-sphere position="-0.5 5 -1" radius="0.2" color="#FF6347"></a-sphere>
-      <a-sphere position="0.3 5.8 -1.5" radius="0.2" color="#FF6347"></a-sphere>
-    </a-entity>
-
-    <!-- Flower beds along the sidewalk -->
-    <a-entity geometry="primitive: plane; height: 0.5; width: 15" position="-2 0 -9.5" rotation="-90 0 0" material="color: #FFB6C1;"></a-entity>
-    <a-entity geometry="primitive: plane; height: 0.5; width: 15" position="2 0 -9.5" rotation="-90 0 0" material="color: #FFD700;"></a-entity>
-
-    <!-- Pathway -->
-    <a-box position="0 -0.02 -9.5" depth="20" height="0.1" width="4" color="#8B4513"></a-box>
-
-    <!-- Detailed Flowers -->
-    <a-entity geometry="primitive: plant; depth: 0.2; height: 0.8; width: 0.2" position="-3 0 -6" material="color: #FF6347;"></a-entity>
-    <a-entity geometry="primitive: plant; depth: 0.2; height: 0.8; width: 0.2" position="3 0 -6" material="color: #4B0082;"></a-entity>
-    <a-entity geometry="primitive: plant; depth: 0.2; height: 0.8; width: 0.2" position="-1 0 -12" material="color: #FF4500;"></a-entity>
-    <a-entity geometry="primitive: plant; depth: 0.2; height: 0.8; width: 0.2" position="1 0 -12" material="color: #32CD32;"></a-entity>
-
-    <!-- Sunflowers -->
-    <a-cylinder position="-6 0.3 -7" radius="0.05" height="0.7" material="color: #228B22"></a-cylinder>
-    <a-sphere position="-6 1 -7" radius="0.35" material="color: #FFD700"></a-sphere>
-    <a-cylinder position="6 0.3 -7" radius="0.05" height="0.7" material="color: #228B22"></a-cylinder>
-    <a-sphere position="6 1 -7" radius="0.35" material="color: #FFD700"></a-sphere>
-
-    <!-- Benches -->
-    <a-entity position="-5 1 -18" rotation="0 0 0">
-      <a-box position="0 0 0" width="2" height="0.3" depth="0.6" material="color: #8B4513"></a-box>
-      <a-box position="-0.8 -0.5 0" rotation="0 90 0" width="0.6" height="0.25" depth="0.25" material="color: #8B4513"></a-box>
-      <a-box position="0.8 -0.5 0" rotation="0 90 0" width="0.6" height="0.25" depth="0.25" material="color: #8B4513"></a-box>
-      <a-box position="-0.9 -0.15 0" width="0.2" height="0.6" depth="0.2" material="color: #8B4513"></a-box>
-      <a-box position="0.9 -0.15 0" width="0.2" height="0.6" depth="0.2" material="color: #8B4513"></a-box>
-    </a-entity>
-
-    <a-entity position="5 1 -18" rotation="0 0 0">
-      <a-box position="0 0 0" width="2" height="0.3" depth="0.6" material="color: #8B4513"></a-box>
-      <a-box position="-0.8 -0.5 0" rotation="0 90 0" width="0.6" height="0.25" depth="0.25" material="color: #8B4513"></a-box>
-      <a-box position="0.8 -0.5 0" rotation="0 90 0" width="0.6" height="0.25" depth="0.25" material="color: #8B4513"></a-box>
-      <a-box position="-0.9 -0.15 0" width="0.2" height="0.6" depth="0.2" material="color: #8B4513"></a-box>
-      <a-box position="0.9 -0.15 0" width="0.2" height="0.6" depth="0.2" material="color: #8B4513"></a-box>
-    </a-entity>
-
-    <!-- Fountain -->
-    <a-cylinder position="0 0.5 -22" radius="2" height="1" color="#ADD8E6"></a-cylinder>
-    <a-entity>
-      <a-sphere position="0 1 -22" radius="0.15" color="#0000FF" 
-                animation="property: position; to: 0 2.5 -22; dir: alternate; dur: 1500; easing: easeInSine; loop: true;">
+    <!-- Large Detailed Rocket -->
+    <a-entity id="large-rocket" position="0 5 -50" rotation="0 0 0" scale="1.5 1.5 1.5">
+      <a-cone position="0 4 0" radius-bottom="0.5" height="2" color="#FF0000"></a-cone>
+      <a-cylinder position="0 2 0" radius="0.5" height="4" color="#FFFFFF"></a-cylinder>
+      <a-cylinder position="0 -1 0" radius="0.25" height="2" color="#FF0000"></a-cylinder>
+      <a-cone position="0 -2 0" radius-bottom="0.5" height="1" color="#FF0000"></a-cone>
+      <a-entity position="0 -2.5 0">
+        <a-box position="0.25 0 0.25" width="0.1" height="0.5" depth="0.1" color="#8B0000"></a-box>
+        <a-box position="-0.25 0 0.25" width="0.1" height="0.5" depth="0.1" color="#8B0000"></a-box>
+        <a-box position="0.25 0 -0.25" width="0.1" height="0.5" depth="0.1" color="#8B0000"></a-box>
+        <a-box position="-0.25 0 -0.25" width="0.1" height="0.5" depth="0.1" color="#8B0000"></a-box>
       </a-entity>
-
-    <!-- Gazebo -->
-    <a-box position="0 2 -30" width="6" height="4" depth="6" color="#DEB887" opacity="0.6"></a-box>
-    <a-box position="0 5 -30" rotation="45 0 0" width="8.5" height="0.3" depth="8.5" color="#8B4513"></a-box>
-
-    <!-- Improved Clouds -->
-    <a-sphere position="-10 12 -40" radius="3.5" color="#FFFFFF"></a-sphere>
-    <a-sphere position="-8 13 -40" radius="2.5" color="#FFFFFF"></a-sphere>
-    <a-sphere position="-12 13 -40" radius="2.5" color="#FFFFFF"></a-sphere>
-
-    <a-sphere position="10 11 -45" radius="4.5" color="#FFFFFF"></a-sphere>
-    <a-sphere position="8 12 -45" radius="3.5" color="#FFFFFF"></a-sphere>
-    <a-sphere position="12 12 -45" radius="3.5" color="#FFFFFF"></a-sphere>
-
-    <a-sphere position="0 13 -50" radius="5" color="#FFFFFF"></a-sphere>
-    <a-sphere position="-2 14 -50" radius="4" color="#FFFFFF"></a-sphere>
-    <a-sphere position="2 14 -50" radius="4" color="#FFFFFF"></a-sphere>
-
-    <!-- Butterflies -->
-    <a-entity position="-2 2 -7">
-      <a-plane color="#FFD700" height="0.2" width="0.2" rotation="0 0 30"></a-plane>
-      <a-plane color="#FFD700" height="0.2" width="0.2" rotation="0 0 -30"></a-plane>
-      <a-animation attribute="position" from="-2 2 -7" to="-1.5 3 -7.5" dur="2000" direction="alternate" repeat="indefinite"></a-animation>
-    </a-entity>
-    <a-entity position="2 2 -6">
-      <a-plane color="#FF69B4" height="0.2" width="0.2" rotation="0 0 30"></a-plane>
-      <a-plane color="#FF69B4" height="0.2" width="0.2" rotation="0 0 -30"></a-plane>
-      <a-animation attribute="position" from="2 2 -6" to="2.5 3 -6.5" dur="2000" direction="alternate" repeat="indefinite"></a-animation>
+      <a-animation attribute="position" from="0 5 -50" to="0 15 -50" direction="alternate" dur="3000" repeat="indefinite"></a-animation>
+      <a-animation attribute="rotation" from="0 0 0" to="0 360 0" dur="5000" repeat="indefinite"></a-animation>
     </a-entity>
 
-    <!-- Flower Pots -->
-    <a-cylinder position="-3 0.2 -9" radius="0.2" height="0.4" color="#8B4513"></a-cylinder>
-    <a-sphere position="-3 0.6 -9" radius="0.2" color="#FF6347"></a-sphere>
-    <a-cylinder position="3 0.2 -9" radius="0.2" height="0.4" color="#8B4513"></a-cylinder>
-    <a-sphere position="3 0.6 -9" radius="0.2" color="#FF6347"></a-sphere>
+    <!-- Additional Buildings -->
+    <!-- Space Control Center -->
+    <a-entity id="control-center" position="-10 0 -20">
+      <a-box position="0 1 0" width="15" height="3" depth="10" color="#4F4F4F"></a-box>
+      <a-box position="0 3 0" width="14.8" height="2" depth="9.8" color="#696969" opacity="0.8"></a-box>
+      <a-cylinder position="0 4 0" radius="2" height="4" color="#808080"></a-cylinder>
+      <a-entity position="0 7 0">
+        <a-ring radius-inner="2.2" radius-outer="2.8" color="#696969" rotation="90 0 0"></a-ring>
+        <a-animation attribute="rotation" from="0 0 0" to="0 0 360" dur="10000" easing="linear" repeat="indefinite"></a-animation>
+      </a-entity>
+    </a-entity>
 
-    <!-- Lanterns -->
-    <a-cone position="-5 1 -13" radius-bottom="0.1" height="1" color="#FFD700"></a-cone>
-    <a-light type="point" intensity="0.6" distance="2" position="-5 1 -13" color="#FFD700"></a-light>
-    
-    <a-cone position="5 1 -13" radius-bottom="0.1" height="1" color="#FFD700"></a-cone>
-    <a-light type="point" intensity="0.6" distance="2" position="5 1 -13" color="#FFD700"></a-light>
+    <!-- Space Habitation Module -->
+    <a-entity id="habitation-module" position="20 0 -40">
+      <a-box position="0 1 0" width="10" height="2" depth="7" color="#484848"></a-box>
+      <a-box position="0 2.5 0" width="9.8" height="1.5" depth="6.8" color="#707070" opacity="0.8"></a-box>
+    </a-entity>
 
-    <!-- Birdhouse -->
-    <a-box position="0 4 -18" width="1" height="1" depth="1" color="#8B4513"></a-box>
-    <a-cylinder position="0.3 3.5 -18" radius="0.1" height="0.5" color="#8B4513"></a-cylinder>
-    <a-sphere position="0.3 4.2 -18" radius="0.1" color="#8B4513"></a-sphere>
+    <!-- Moon Rover Vehicle -->
+    <a-entity id="moon-rover" position="5 0 -5" rotation="0 30 0" scale="0.5 0.5 0.5">
+      <a-box position="0 0.5 0" width="2" height="1" depth="3" color="#C0C0C0"></a-box>
+      <a-cylinder position="1 0 -1.5" radius="0.5" height="0.6" rotation="90 0 0" color="#000000"></a-cylinder>
+      <a-cylinder position="-1 0 -1.5" radius="0.5" height="0.6" rotation="90 0 0" color="#000000"></a-cylinder>
+      <a-cylinder position="1 0 1.5" radius="0.5" height="0.6" rotation="90 0 0" color="#000000"></a-cylinder>
+      <a-cylinder position="-1 0 1.5" radius="0.5" height="0.6" rotation="90 0 0" color="#000000"></a-cylinder>
+      <a-entity>
+        <a-box position="0 1.5 0.5" width="1" height="0.1" depth="2" color="#A9A9A9"></a-box>
+        <a-box position="0 1.1 -0.7" width="0.2" height="0.2" depth="0.1" color="#FFFFFF"></a-box>
+      </a-entity>
+    </a-entity>
 
-    <!-- Surrounding Fence -->
-    <a-box position="-40 1 -30" width="1" height="3" depth="40" color="#8B4513"></a-box>
-    <a-box position="40 1 -30" width="1" height="3" depth="40" color="#8B4513"></a-box>
-    <a-box position="0 1 -70" width="80" height="3" depth="1" color="#8B4513"></a-box>
-    <a-box position="0 1 10" width="80" height="3" depth="1" color="#8B4513"></a-box>
-
-    <!-- Interactive Lighting -->
-    <a-light type="ambient" color="#555"></a-light>
-    <a-light type="directional" position="-1 1 0" intensity="0.7"></a-light>
-    <a-light type="point" color="#FFFFFF" intensity="0.5" distance="25" position="0 5 -10"></a-light>
-
-    <!-- Interactive Elements -->
-    <a-box position="5 1 -15" width="0.5" height="0.2" depth="0.5" color="#FF4500" class="interactive-object" onclick="handleClick()">
+    <!-- Orbiting Satellites -->
+    <a-box position="-18 10 -35" width="1" height="0.2" depth="1" color="#A9A9A9">
+      <a-box position="0 0.5 0" width="0.6" height="0.1" depth="0.1" color="#D3D3D3"></a-box>
+      <a-animation attribute="rotation" to="0 360 0" dur="10000" repeat="indefinite"></a-animation>
     </a-box>
-    <a-entity position="5 1.5 -15" text="value: Click Me; color: #FF4500; width: 1.5;">
+    
+    <a-box position="15 10 -40" width="1" height="0.2" depth="1" color="#A9A9A9">
+      <a-box position="0 0.5 0" width="0.6" height="0.1" depth="0.1" color="#D3D3D3"></a-box>
+      <a-animation attribute="rotation" to="0 360 0" dur="10000" repeat="indefinite"></a-animation>
+    </a-box>
+
+    <!-- Alien with Animation -->
+    <a-entity id="alien" position="8 1.5 -15" scale="1 1.5 1" rotation="0 0 0">
+      <a-sphere radius="1" color="#32CD32"></a-sphere>
+      <a-sphere position="-0.5 -1 -0.5" radius="0.3" color="#32CD32"></a-sphere>
+      <a-sphere position="0.5 -1 -0.5" radius="0.3" color="#32CD32"></a-sphere>
+      <a-sphere position="-0.5 -1 0.5" radius="0.3" color="#32CD32"></a-sphere>
+      <a-sphere position="0.5 -1 0.5" radius="0.3" color="#32CD32"></a-sphere>
+      <a-animation attribute="rotation" from="0 0 0" to="0 360 0" dur="20000" easing="linear" repeat="indefinite"></a-animation>
     </a-entity>
 
-    <!-- Camera -->
-    <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+    <!-- Floating Meteorites with Animation -->
+    <a-sphere position="20 15 -60" radius="1" color="#A52A2A" roughness="1">
+      <a-animation attribute="position" from="20 15 -60" to="15 5 -70" dur="6000" easing="linear" repeat="indefinite"></a-animation>
+      <a-animation attribute="rotation" from="0 0 0" to="0 360 0" dur="4000" easing="linear" repeat="indefinite"></a-animation>
+    </a-sphere>
+
+    <!-- Floating Asteroids with Animation -->
+    <a-sphere position="15 12 -50" radius="2" color="#696969" roughness="0.8">
+      <a-animation attribute="rotation" from="0 0 0" to="0 360 0" dur="10000" repeat="indefinite"></a-animation>
+      <a-animation attribute="position" from="15 12 -50" to="12 15 -55" dur="12000" easing="easeInOutQuad" repeat="indefinite"></a-animation>
+    </a-sphere>
+    
+    <a-sphere position="-20 15 -55" radius="1.5" color="#778899" roughness="0.8">
+      <a-animation attribute="rotation" from="0 0 0" to="0 360 0" dur="13000" repeat="indefinite"></a-animation>
+      <a-animation attribute="position" from="-20 15 -55" to="-22 10 -50" dur="15000" easing="easeInOutQuad" repeat="indefinite"></a-animation>
+    </a-sphere>
+
+    <!-- Moon Craters -->
+    <a-cylinder position="-15 0.1 -30" radius="2" height="0.1" color="#606060"></a-cylinder>
+    <a-cylinder position="15 0.1 -35" radius="1.5" height="0.1" color="#808080"></a-cylinder>
+    <a-cylinder position="10 0.1 -40" radius="1.8" height="0.1" color="#505050"></a-cylinder>
+
+    <!-- Space Tree (futuristic, decorative element) -->
+    <a-entity id="space-tree" position="12 0 -12" scale="0.5 0.5 0.5">
+      <a-cylinder position="0 1 0" radius="0.2" height="2" color="#8B4513"></a-cylinder>
+      <a-sphere position="0 3 0" radius="1" color="#228B22"></a-sphere>
+      <a-sphere position="0 4 0" radius="0.8" color="#228B22"></a-sphere>
+      <a-sphere position="0 5 0" radius="0.6" color="#228B22"></a-sphere>
+      <a-light type="point" color="#00FF00" intensity="0.5" distance="5" position="0 5 0"></a-light>
+    </a-entity>
+
+    <!-- Interactive Elements With Text -->
+    <a-box position="0 1 -10" width="0.7" height="0.7" depth="0.7" color="#FF4500" class="interactive-object" onclick="handleClick()"
+            animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true"></a-box>
+    <a-entity position="0 2.5 -10" text="value: Click Me; align: center; color: #FF4500; width: 6;"></a-entity>
+
+    <!-- Camera Setup -->
+    <a-entity camera look-controls wasd-controls position="0 1.6 10"></a-entity>
+    
+    <!-- Enhanced Lighting -->
+    <a-light type="ambient" color="#AAA"></a-light>
+    <a-light type="directional" position="1 1 -2" intensity="0.6" color="#FFFFFF"></a-light>
+    <a-light type="point" intensity="0.8" distance="30" position="5 15 -20" color="#FFFFFF"></a-light>
   </a-scene>
 
   <script>
