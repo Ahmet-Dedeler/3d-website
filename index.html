@@ -36,7 +36,7 @@
     <a-entity light="type: ambient; color: #222"></a-entity>
 
     <!-- Lunar Surface -->
-    <a-plane position="0 0 0" rotation="-90 0 0" width="200" height="200" color="#444444"></a-plane>
+    <a-plane position="0 0 0" rotation="-90 0 0" width="300" height="300" color="#444444"></a-plane>
 
     <!-- Your Name in the Center -->
     <a-text 
@@ -95,6 +95,10 @@
         <a-box position="0 3 5" width="15" height="1" depth="0.2" color="#696969"></a-box>
         <a-box position="0 3 -5" width="15" height="1" depth="0.2" color="#696969"></a-box>
       </a-entity>
+      <!-- Communication Dish -->
+      <a-dish position="0 4 5" radius="2" color="#C0C0C0" height="0.5"></a-dish>
+      <a-cone position="0 5 5" radius-bottom="0.5" height="1" color="#A9A9A9"></a-cone>
+      <a-animation attribute="rotation" from="0 0 0" to="0 360 0" dur="8000" easing="linear" repeat="indefinite"></a-animation>
     </a-entity>
 
     <!-- Space Habitation Module -->
@@ -188,25 +192,108 @@
     <a-sphere position="25 50 -90" radius="5" color="#FFD700" roughness="0.9"></a-sphere>
     <a-sphere position="50 70 -110" radius="7" color="#FF69B4" roughness="0.9"></a-sphere>
 
-    <!-- Interactive Elements With Text -->
-    <a-box position="0 1 -10" width="0.7" height="0.7" depth="0.7" color="#FF4500" class="interactive-object" onclick="handleClick()"
-            animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true"></a-box>
-    <a-entity position="0 2.5 -10" text="value: Click Me; align: center; color: #FF4500; width: 6;"></a-entity>
+    <!-- Interactive Panel with Buttons -->
+    <a-entity id="interactive-panel" position="0 2 -5" rotation="0 15 0">
+      <a-box width="3" height="1.5" depth="0.1" color="#2E2E2E"></a-box>
+      <a-entity position="-1.2 0.3 0">
+        <a-box width="0.5" height="0.2" depth="0.05" color="#FF6347" class="interactive-button" onclick="showAlert('Button 1 clicked!')"></a-box>
+        <a-text value="Button 1" position="-0.23 0.2 0.05" rotation="0 0 0" color="#FFF" width="1"></a-text>
+      </a-entity>
+      <a-entity position="0 0.3 0">
+        <a-box width="0.5" height="0.2" depth="0.05" color="#FFD700" class="interactive-button" onclick="showAlert('Button 2 clicked!')"></a-box>
+        <a-text value="Button 2" position="-0.23 0.2 0.05" rotation="0 0 0" color="#FFF" width="1"></a-text>
+      </a-entity>
+      <a-entity position="1.2 0.3 0">
+        <a-box width="0.5" height="0.2" depth="0.05" color="#32CD32" class="interactive-button" onclick="showAlert('Button 3 clicked!')"></a-box>
+        <a-text value="Button 3" position="-0.23 0.2 0.05" rotation="0 0 0" color="#FFF" width="1"></a-text>
+      </a-entity>
+    </a-entity>
 
-    <!-- Camera Setup -->
-    <a-entity camera look-controls wasd-controls position="0 1.6 10"></a-entity>
-    
+    <!-- Holographic Globe -->
+    <a-entity id="holographic-globe" position="-8 3 -20">
+      <a-sphere radius="2" color="#1E90FF" opacity="0.5"></a-sphere>
+      <a-animation attribute="rotation" dur="10000" to="0 360 0" repeat="indefinite"></a-animation>
+      <a-animation attribute="scale" dur="2000" to="1.5 1.5 1.5" direction="alternate" repeat="indefinite"></a-animation>
+    </a-entity>
+
+    <!-- Research Lab -->
+    <a-entity id="research-lab" position="25 0 -55">
+      <a-box position="0 1.5 0" width="10" height="3" depth="10" color="#5F5F5F"></a-box>
+      <a-entity position="0 4 0">
+        <a-cone position="0 0 0" radius-bottom="1" height="2" color="#7F7F7F"></a-cone>
+        <a-animation attribute="rotation" dur="10000" to="0 360 0" repeat="indefinite"></a-animation>
+      </a-entity>
+      <a-entity id="lab-details" position="0 1.5 0">
+        <a-box position="-5 2.5 0" width="0.5" height="2" depth="10" color="#7F7F7F"></a-box>
+        <a-box position="5 2.5 0" width="0.5" height="2" depth="10" color="#7F7F7F"></a-box>
+        <a-box position="0 3.5 5" width="10" height="1" depth="0.2" color="#7F7F7F"></a-box>
+        <a-box position="0 3.5 -5" width="10" height="1" depth="0.2" color="#7F7F7F"></a-box>
+      </a-entity>
+    </a-entity>
+
+    <!-- Communication Array -->
+    <a-entity id="communication-array" position="-25 0 -65">
+      <a-box position="0 2 0" width="15" height="4" depth="7" color="#4E4E4E"></a-box>
+      <a-cylinder position="0 4.5 0" radius="1" height="2" color="#6E6E6E"></a-cylinder>
+      <a-entity position="0 7 0">
+        <a-ring radius-inner="1.5" radius-outer="2" color="#A9A9A9" rotation="90 0 0"></a-ring>
+        <a-animation attribute="rotation" from="0 0 0" to="0 0 360" dur="15000" easing="linear" repeat="indefinite"></a-animation>
+        <a-cone position="0 2 0" radius-bottom="0.7" height="1" color="#A9A9A9"></a-cone>
+      </a-entity>
+    </a-entity>
+
+    <!-- Astronaut Model -->
+    <a-entity id="astronaut" position="10 1 -30" rotation="0 60 0">
+      <a-sphere radius="0.5" color="#FFFFFF"></a-sphere>
+      <a-cylinder position="0 -1 0" radius="0.4" height="1.5" color="#FFFFFF"></a-cylinder>
+      <a-box position="0 -0.8 0.3" width="0.9" height="0.2" depth="0.6" color="#FFFFFF"></a-box>
+      <a-cylinder position="0 1.6 0" radius="0.1" height="0.6" color="#808080"></a-cylinder>
+      <a-cylinder position="0 0.8 0" radius="0.7" height="0.2" color="#A9A9A9"></a-cylinder>
+      <a-cylinder position="0 0 0.5" radius="0.1" height="0.7" color="#A9A9A9"></a-cylinder>
+      <a-cylinder position="0 0 -0.5" radius="0.1" height="0.7" color="#A9A9A9"></a-cylinder>
+      <a-cylinder position="0.4 0 0" radius="0.1" height="0.7" color="#A9A9A9" rotation="90 0 0"></a-cylinder>
+      <a-cylinder position="-0.4 0 0" radius="0.1" height="0.7" color="#A9A9A9" rotation="90 0 0"></a-cylinder>
+      <a-animation attribute="rotation" from="0 60 0" to="0 -60 0" dur="5000" easing="easeInOutQuad" direction="alternate" repeat="indefinite"></a-animation>
+    </a-entity>
+
+    <!-- Space Debris Field -->
+    <a-entity id="debris-field" position="0 15 -80" rotation="0 45 0">
+      <a-sphere radius="0.4" color="#555555" position="0 0 0">
+        <a-animation attribute="rotation" dur="6000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      </a-sphere>
+      <a-box width="0.5" height="0.5" depth="0.5" color="#777777" position="1 1 -1">
+        <a-animation attribute="rotation" dur="7000" to="360 360 0" easing="linear" repeat="indefinite"></a-animation>
+      </a-box>
+      <a-cylinder height="0.5" radius="0.2" color="#999999" position="-1 1 1" rotation="45 0 0">
+        <a-animation attribute="rotation" dur="8000" to="0 0 -360" easing="linear" repeat="indefinite"></a-animation>
+      </a-cylinder>
+      <a-entity id="more-debris" position="0 2 0">
+        <a-sphere radius="0.3" color="#666666" position="-0.5 0.5 0">
+          <a-animation attribute="rotation" dur="6000" to="0 -360 0" easing="linear" repeat="indefinite"></a-animation>
+        </a-sphere>
+        <a-box width="0.4" height="0.4" depth="0.4" color="#888888" position="0.5 -0.5 0">
+          <a-animation attribute="rotation" dur="7000" to="-360 -360 0" easing="linear" repeat="indefinite"></a-animation>
+        </a-box>
+        <a-cylinder height="0.4" radius="0.15" color="#AAAAAA" position="0 -0.4 -0.5" rotation="30 0 0">
+          <a-animation attribute="rotation" dur="8000" to="0 0 360" easing="linear" repeat="indefinite"></a-animation>
+        </a-cylinder>
+      </a-entity>
+    </a-entity>
+
     <!-- Enhanced Lighting -->
     <a-light type="ambient" color="#AAA"></a-light>
     <a-light type="directional" position="1 1 -2" intensity="0.6" color="#FFFFFF"></a-light>
     <a-light type="point" intensity="0.8" distance="30" position="5 15 -20" color="#FFFFFF"></a-light>
-  </a-scene>
+    <a-light type="point" intensity="0.5" distance="20" position="-10 5 15" color="#FF4500"></a-light>
 
-  <script>
-    function handleClick() {
-      alert('You clicked the interactive object!');
+    <!-- Camera Setup -->
+    <a-entity camera look-controls wasd-controls position="0 1.6 10"></a-entity>
+    </a-scene>
+
+    <script>
+    function showAlert(message) {
+      alert(message);
     }
-  </script>
-</body>
-</html>
-``
+    </script>
+    </body>
+    </html>
